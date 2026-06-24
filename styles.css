@@ -529,25 +529,22 @@ p {
   font-weight: 900;
 }
 
-.location-map-link {
+.location-map {
   display: block;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--yellow-soft);
   box-shadow: 0 10px 22px rgba(90, 47, 34, 0.09);
-  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-.location-map-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 28px rgba(90, 47, 34, 0.14);
-}
-
-.location-map-link img {
+.location-map iframe {
   width: 100%;
+  height: auto;
+  min-height: 240px;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  display: block;
+  border: 0;
 }
 
 .location-address {
