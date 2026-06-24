@@ -88,8 +88,8 @@ a {
   border: 1px solid rgba(240, 216, 183, 0.95);
   border-radius: 8px;
   background: var(--cream);
-  object-fit: cover;
-  object-position: center 42%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .brand strong,
@@ -229,6 +229,8 @@ p {
 .hero-actions {
   width: 100%;
   margin-top: 12px;
+  display: grid;
+  gap: 10px;
 }
 
 .btn {
@@ -237,6 +239,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   border: 2px solid transparent;
   border-radius: 8px;
   padding: 13px 16px;
@@ -247,9 +250,18 @@ p {
   will-change: transform;
 }
 
+.btn-icon,
+.location-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
 .btn:hover,
 .header-whatsapp:hover,
-.floating-whatsapp:hover {
+.floating-whatsapp:hover,
+.floating-location:hover {
   transform: translateY(-2px);
 }
 
@@ -261,6 +273,12 @@ p {
   background: var(--whatsapp);
   color: #082812;
   box-shadow: 0 14px 28px rgba(37, 211, 102, 0.26);
+}
+
+.btn-location {
+  background: var(--red);
+  color: #fff8eb;
+  box-shadow: 0 14px 28px rgba(201, 74, 58, 0.2);
 }
 
 .btn-secondary {
@@ -289,21 +307,6 @@ p {
 .hero-visual {
   position: relative;
   display: block;
-}
-
-.hero-logo-sticker {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-  width: 56px;
-  height: 68px;
-  border: 2px solid rgba(255, 248, 235, 0.92);
-  border-radius: 8px;
-  background: var(--cream);
-  object-fit: cover;
-  object-position: center 42%;
-  box-shadow: 0 10px 24px rgba(45, 32, 25, 0.18);
 }
 
 .visual-image {
@@ -454,7 +457,7 @@ p {
 }
 
 .benefit-card:nth-child(4) .benefit-media img {
-  object-position: center 42%;
+  object-position: center 38%;
 }
 
 .benefit-copy {
@@ -503,6 +506,12 @@ p {
   background: var(--cream);
 }
 
+.schedule-panel,
+.location-panel {
+  display: flex;
+  flex-direction: column;
+}
+
 .info-panel p:not(.eyebrow) {
   margin-top: 12px;
   color: var(--muted);
@@ -513,16 +522,66 @@ p {
 }
 
 .location-box {
-  min-height: 118px;
   display: grid;
-  place-items: center;
+  gap: 14px;
   margin-top: 16px;
-  border: 2px dashed rgba(201, 74, 58, 0.35);
-  border-radius: 8px;
-  background: rgba(255, 253, 248, 0.74);
   color: var(--brown);
   font-weight: 900;
-  text-align: center;
+}
+
+.location-map-link {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--yellow-soft);
+  box-shadow: 0 10px 22px rgba(90, 47, 34, 0.09);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.location-map-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(90, 47, 34, 0.14);
+}
+
+.location-map-link img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.location-address {
+  display: grid;
+  gap: 4px;
+  margin-top: 0;
+  color: var(--brown);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.location-address span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.location-link {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 12px 18px;
+  background: var(--red);
+  color: #fff8eb;
+  font-size: 1rem;
+  font-weight: 900;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.location-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(201, 74, 58, 0.2);
 }
 
 .final-cta {
@@ -569,13 +628,12 @@ p {
   font-weight: 600;
 }
 
-.floating-whatsapp {
+.floating-whatsapp,
+.floating-location {
   position: fixed;
-  right: 12px;
   bottom: 12px;
   z-index: 30;
   min-height: 48px;
-  min-width: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -589,6 +647,21 @@ p {
   box-shadow: 0 14px 30px rgba(8, 40, 18, 0.25);
   transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
   will-change: transform;
+}
+
+.floating-whatsapp {
+  right: 12px;
+  min-width: 48px;
+}
+
+.floating-location {
+  left: 12px;
+  max-width: calc(100% - 132px);
+  padding: 0 16px;
+  gap: 9px;
+  background: var(--red);
+  color: #fff8eb;
+  box-shadow: 0 14px 30px rgba(90, 47, 34, 0.26);
 }
 
 .whatsapp-icon {
@@ -869,22 +942,27 @@ p {
     min-width: 220px;
   }
 
-  .hero-visual .visual-image {
-    min-height: 430px;
+  .hero-actions {
+    grid-template-columns: repeat(2, max-content);
   }
 
-  .hero-logo-sticker {
-    top: 18px;
-    left: 18px;
-    width: 108px;
-    height: 132px;
+  .hero-visual .visual-image {
+    min-height: 430px;
+    object-position: center 38%;
   }
 
   .split-grid,
   .info-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: center;
     gap: 32px;
+  }
+
+  .split-grid {
+    align-items: center;
+  }
+
+  .info-grid {
+    align-items: stretch;
   }
 
   .mini-placeholder {
@@ -909,6 +987,10 @@ p {
   .floating-whatsapp {
     right: 22px;
     bottom: 22px;
+  }
+
+  .floating-location {
+    display: none;
   }
 }
 
