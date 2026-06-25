@@ -1,4 +1,32 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const headerActions = document.querySelector(".header-actions");
+const heroActions = document.querySelector(".hero-actions");
+const siteHeader = document.querySelector(".site-header");
+
+if (headerActions && heroActions && siteHeader) {
+  let isTicking = false;
+
+  const updateHeaderActions = () => {
+    const triggerPoint = siteHeader.getBoundingClientRect().bottom + 8;
+    const shouldShowActions = heroActions.getBoundingClientRect().bottom <= triggerPoint;
+
+    headerActions.classList.toggle("is-visible", shouldShowActions);
+    isTicking = false;
+  };
+
+  const requestHeaderActionsUpdate = () => {
+    if (isTicking) {
+      return;
+    }
+
+    isTicking = true;
+    window.requestAnimationFrame(updateHeaderActions);
+  };
+
+  updateHeaderActions();
+  window.addEventListener("scroll", requestHeaderActionsUpdate, { passive: true });
+  window.addEventListener("resize", requestHeaderActionsUpdate);
+}
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
