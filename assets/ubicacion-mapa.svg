@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
   <title id="title">Vista previa de ubicacion</title>
-  <desc id="desc">Mapa estilizado con marcador de ubicacion para Polleria La 10.</desc>
+  <desc id="desc">Mapa estilizado con marcador de ubicacion para Polleria La Diez.</desc>
   <rect width="900" height="520" fill="#fff8eb"/>
   <path d="M0 92c125 35 214 26 330-18 114-43 215-49 335-12 95 29 162 24 235-2v128c-85 25-170 16-260-18-99-37-193-32-300 8-126 47-224 52-340 16z" fill="#ffe6a3"/>
   <path d="M0 372c90-38 179-43 280-17 112 29 213 26 320-18 112-46 204-48 300-19v202H0z" fill="#f0d8b7"/>
@@ -17,5 +17,5 @@
   <rect x="40" y="38" width="256" height="58" rx="8" fill="#fffdf8" opacity="0.94"/>
   <text x="66" y="73" fill="#5a2f22" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">Ubicacion</text>
   <rect x="614" y="404" width="236" height="62" rx="8" fill="#fffdf8" opacity="0.94"/>
-  <text x="674" y="442" fill="#5a2f22" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">Polleria La 10</text>
+  <text x="656" y="442" fill="#5a2f22" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">Polleria La Diez</text>
 </svg>
