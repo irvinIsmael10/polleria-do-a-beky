@@ -518,6 +518,10 @@ p {
   color: var(--muted);
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .location-box {
   display: grid;
   gap: 14px;
